@@ -13,7 +13,7 @@ from flet import (
 
 def main(page: Page):
 
-    img_url = 'C:\\Users\\havit\\OneDrive\\Pictures\\Camera Roll\\WIN_20230429_14_32_53_Pro.jpg'
+    img_url = 'C:\\Users\\Rudra\\Downloads\\project_logo.png'
     img = flet.Image(
         src=str(img_url),
         width=600,
