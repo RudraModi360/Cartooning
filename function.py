@@ -2,44 +2,55 @@ from rembg import remove
 from PIL import Image
 import numpy as np
 import cv2
+import os
+from pathlib import Path
+home = str(Path.home()) + "/Downloads/"
 
-img = cv2.imread("cartoon_i2_edited.jpg", cv2.IMREAD_COLOR)
-img1 = cv2.imread("cartoon_i1_edited.jpg")
 
 def Filter_gray(img):
-    img = cv2.imread("cartoon_i2_edited.jpg", cv2.IMREAD_COLOR)
+    sf_name = img
+    img = cv2.imread(img, cv2.IMREAD_COLOR)
     img = cv2.medianBlur(img, 1)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    cv2.imshow("Gray",gray)
+    cv2.imwrite(os.path.join(home, 'gray_' + os.path.basename(sf_name)),gray)
 
 def Edges(img):
-    img = cv2.imread("cartoon_i2_edited.jpg",cv2.IMREAD_COLOR)
+    sf_name=img
+    img = cv2.imread(img,cv2.IMREAD_COLOR)
     img = cv2.medianBlur(img, 1)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 9)
     edges_color = cv2.applyColorMap(edges, cv2.COLORMAP_WINTER)
-    cv2.imshow("Edges", edges_color)
+    cv2.imwrite(os.path.join(home, 'Edged_'+os.path.basename(sf_name)),edges_color)
 
-def merge(img1):
-    img1 = Image.open("cartoon_i1_edited.jpg")
-    output = remove(img1)
-    output.save("removed_BG.png")
+def merge(img):
+    img = Image.open(img)
+    output = remove(img)
+    output.save("removed_BG.png")    
     mi1 = Image.open("removed_BG.png")
     mi2 = Image.open("bg.png")
     mi2.paste(mi1, (0, 0), mi1)
-    mi2.save("merged_image.png")
+    mi2.save("C:\\Users\\Rudra\\Downloads\\merged_image.png")
+
+def removebg(img):
+    img = Image.open(img)
+    output = remove(img)
+    output.save("C:\\Users\\Rudra\\Downloads\\removed_BG_LOGO.png")
+    
 
 def cartoon(img):
-    img = cv2.imread("cartoon_i2_edited.jpg", cv2.IMREAD_COLOR)
+    sf_name=img
+    img = cv2.imread(img, cv2.IMREAD_COLOR)
     img = cv2.medianBlur(img, 1)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 9)
     # edges_color = cv2.applyColorMap(edges, cv2.COLORMAP_JET)
     color = cv2.bilateralFilter(img,1, 250, 250) 
     cartoon = cv2.bitwise_and(color, color, mask=edges)
-    cv2.imshow("Cartoon", cartoon)
-    
+    cv2.imwrite(os.path.join(home, 'Simple_Cartooned'+os.path.basename(sf_name)),cartoon)
 def cartoonize(img, k):
+    sf_name=img
+    img = cv2.imread(img, cv2.IMREAD_COLOR)
     data = np.float32(img).reshape((-1, 3))
     print("shape of input data: ", img.shape)
     print("shape of resized data", data.shape)
@@ -51,20 +62,19 @@ def cartoonize(img, k):
     print(center)
     result = center[label.flatten()]
     result = result.reshape(img.shape)
-    cv2.imshow("result", result)
+    # cv2.imshow("result", result)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     edges  = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 9, 8)
-    # cv2.imshow("edges", edges)
     blurred = cv2.medianBlur(result, 3)
     cartoon = cv2.bitwise_and(blurred, blurred, mask=edges)
-    cv2.imshow("cartoon",cartoon)
-    
+    cv2.imwrite(os.path.join(home, 'Final_Cartooned'+os.path.basename(sf_name)),cartoon)
 
-Filter_gray(img)
-Edges(img)
-merge(img1)
-cartoonize(img, 8)
-cartoon(img)
-cv2.imshow("input", img)
+Filter_gray("LOGO.jpeg")
+Edges("LOGO.jpeg")
+removebg("LOGO.jpeg")
+cartoon("LOGO.jpeg")
+cartoonize("LOGO.jpeg",8)
+merge("LOGO.jpeg")
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
