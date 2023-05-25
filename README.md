@@ -1,3 +1,37 @@
 # Cartooning
-Change Image To  It's Cartoon Version..
-The inspiration behind the Cartoonist project was to create a tool that simplifies the process of creating cartoon drawings. We wanted to create an easy-to-use tool that would allow anyone to draw cartoons, regardless of their artistic ability. The idea was to create a simple interface that would allow users to select various features and characteristics of a cartoon character, and then generate a cartoon drawing based on their selections.The user can select these options using a simple interface, and then the tool generates a cartoon drawing based on the selected options. Additionally, the tool offers an option to customize and edit the generated drawing to save it and make it unique.We built Cartoonist using Python version 3.10. The frontend of the same is made in python. We also used Python for the backend of the application, which includes the drawing generation and customization functionality. To generate the drawing.We also faced challenges in optimizing the performance of the application, as it required a lot of computational resources to generate the drawings in real-time. Additionally, we faced challenges in creating a user-friendly interface that was intuitive and easy to use for users of all skill levels.We are proud of the fact that we were able to create a tool that simplifies the process of creating cartoon drawings. Additionally, we are proud of the user interface that we created, which is intuitive and easy to use for users of all skill levels.During the development of Cartoonist,, image processing, and GUI development. We also learned about the importance of user experience and user interface design, and how it can greatly affect the usability of an application.In the future, we plan to expand the functionality of Cartoonist by adding more options for users to choose from, such as more facial features, hairstyles, and accessories. We also plan to improve the performance of the application by optimizing the machine learning models and the codebase. Additionally, we plan to integrate social media sharing functionality so that users can easily share their cartoon drawings on social media platforms.
+A Programme To Convert image in Cartoonise Form..
+# Features
+Sure! Here's your text converted into bullet points:
+
+- Inspiration behind the Cartoonist project:
+  - Simplify the process of creating cartoon drawings.
+  - Enable anyone to draw cartoons, regardless of artistic ability.
+  - Create a simple interface for selecting cartoon features and generating drawings based on user selections.
+
+- Cartoonist features:
+  - Easy-to-use interface for selecting cartoon character features.
+  - Generating cartoon drawings based on selected options.
+  - Customization and editing functionality to make drawings unique.
+
+- Technology used:
+  - Built using Python version 3.10.
+  - Python used for both frontend and backend development.
+  - Image processing and GUI development techniques applied.
+
+- Challenges faced:
+  - Performance optimization due to computational resource requirements for real-time drawing generation.
+  - Designing a user-friendly and intuitive interface for users of all skill levels.
+
+- Achievements:
+  - Creation of a tool simplifying the process of creating cartoon drawings.
+  - Intuitive and user-friendly interface catering to users of all skill levels.
+  - Gained insights into image processing, GUI development, and the significance of user experience and interface design.
+
+- Future plans:
+  - Expand functionality with more options for facial features, hairstyles, and accessories.
+  - Improve performance by optimizing machine learning models and codebase.
+  - Integrate social media sharing to allow users to easily share their cartoon drawings.
+
+# Contributers
+[@RudraModi](https://github.com/Rudramodi360)
+[@Havit_on_Git](https://github.com/HavitOngit)
