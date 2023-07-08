@@ -85,7 +85,7 @@ def main(page: Page):
         Row(
             [
                 ElevatedButton("Anime Effect", on_click=anime),
-                ElevatedButton("Sckech Effect", on_click=sketch),
+                ElevatedButton("Sketch Effect", on_click=sketch),
                 ElevatedButton("Black/White", on_click=bw),
                 ElevatedButton("Cartoon Effect", on_click=cartoon),
                 ElevatedButton("Remove Background", on_click=removebg)
