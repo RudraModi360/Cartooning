@@ -16,6 +16,6 @@ To use this script, make sure you have Python installed on your system. You also
 
 ```bash
 pip install rembg opencv-python-headless Pillow flet
-python script_name.py
-python script_name.py
+python toonify.py
+
 
